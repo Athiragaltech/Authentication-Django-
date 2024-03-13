@@ -5,8 +5,10 @@ from .views import register,login
 from . import views
 
 urlpatterns = [
-    path('', register, name='register'),
-    path('login/', login, name='login'),
+    # path('', register, name='register'),
+    # path('login/', login, name='login'),
+    path('register/', views.register, name='register'),
+    path('', login, name='login'),
    
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
    

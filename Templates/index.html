@@ -1,9 +1,32 @@
+{%load static%}
+<head>
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+
+{% if user.is_authenticated %}
+   
+<div class="main">
+    <div class="form1">
+
+<h2>User Profile</h2>
+ <h2>Welcome, {{ user.username }}!</h2>
+  <p><strong>Username:</strong> {{ user.username }}</p>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+  <p><strong>First Name:</strong> {{ user.first_name }}</p>
+  <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+  <!-- <p><strong>Phone Number:</strong> {{ user.phone_number }}</p> -->
+  <p><strong>Phone Number:</strong> {{ user.phonenumber.phone_number }}</p>
 
 
-  <h2>Register</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
-  </form>
-
+    
+   
+{% else %}
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+    </div>
+    </div>
+{% endif %}

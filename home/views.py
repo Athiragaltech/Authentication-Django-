@@ -12,7 +12,8 @@ def register(request):
             return redirect('login')
     else:
         form = UserRegistrationForm()
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'registration.html', {'form': form})
+
 
 
 def login(request):
@@ -27,7 +28,7 @@ def login(request):
                 return redirect('/index')  # Redirect to the home page after login
     else:
         form = AuthenticationForm()
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'login.html', {'form': form})
 
  
 def index(request):
